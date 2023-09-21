@@ -443,7 +443,7 @@ vector<uint64_t> DigilentOscilloscope::GetSampleRatesNonInterleaved()
 		m_transport->SendCommand("RATES?");
 		rates = m_transport->ReadReply();
 	}
-
+	LogDebug("RATES=%s\n", rates.c_str());
 	size_t i=0;
 	while(true)
 	{
@@ -488,6 +488,7 @@ vector<uint64_t> DigilentOscilloscope::GetSampleDepthsNonInterleaved()
 		m_transport->SendCommand("DEPTHS?");
 		depths = m_transport->ReadReply();
 	}
+	LogDebug("DEPTHS=%s\n", depths.c_str());
 
 	size_t i=0;
 	while(true)
